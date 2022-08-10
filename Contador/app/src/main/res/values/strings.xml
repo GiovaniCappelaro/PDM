@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Contador</string>
+    <string name="zero">0</string>
+    <string name="clique">Clique</string>
+    <string name="valor_inicial">Digite o valor inicial</string>
+</resources>
