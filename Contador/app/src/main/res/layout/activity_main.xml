@@ -8,16 +8,35 @@
     android:padding="5dp"
     tools:context=".MainActivity">
 
-    <CheckBox
-        android:id="@+id/inicialCb"
+    <RadioGroup
+        android:id="@+id/inicialRg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="10"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
 
-        />
+        <RadioButton
+            android:id="@+id/zeroRb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_weight="1"
+            android:text="0" />
+
+        <RadioButton
+            android:id="@+id/dezRb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_weight="1"
+            android:text="10" />
+
+        <!--Deixa só o peso marcar o tamanho -->
+    </RadioGroup>
+
+    
 
     <TextView
       android:id="@+id/contadorTv"
@@ -27,7 +46,7 @@
       android:textSize="64sp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/inicialCb"
+      app:layout_constraintTop_toBottomOf="@id/inicialRg"
       app:layout_constraintBottom_toTopOf="@id/cliqueBt" />
 
     <Button

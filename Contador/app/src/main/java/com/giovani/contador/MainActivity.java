@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.giovani.contador.databinding.ActivityMainBinding;
 
@@ -26,19 +27,19 @@ public class MainActivity extends AppCompatActivity {
         amb = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(amb.getRoot());
 
-        //setContentView(R.layout.activity_main);
-
-        /*contadorTv = findViewById(R.id.contadorTv); //acha a view de xml q tem esse id
-        cliqueBt = findViewById(R.id.cliqueBt);
-        inicialEt = findViewById(R.id.inicialEt);*/
 
         //Listeners:
 
-        amb.inicialCb.setOnClickListener( (view) -> {
-            if(amb.inicialCb.isChecked()){
-                contador = Integer.parseInt(amb.inicialCb.getText().toString());
-            }//Se marcar o checkbox do valor, o contador começa valendo o valor do checkbox
+        amb.zeroRb.setOnClickListener(view -> {
+            contador = 0;
+            Toast.makeText(this, "clicou no zero", Toast.LENGTH_SHORT).show();
         });
+
+        amb.dezRb.setOnClickListener(view -> {
+            contador = 10;
+            Toast.makeText(this, "clicou no dez", Toast.LENGTH_SHORT).show();
+        });
+
 
         amb.cliqueBt.setOnClickListener(new View.OnClickListener() {
             @Override
