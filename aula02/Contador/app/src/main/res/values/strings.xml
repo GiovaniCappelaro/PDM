@@ -3,4 +3,9 @@
     <string name="zero">0</string>
     <string name="clique">Clique</string>
     <string name="valor_inicial">Digite o valor inicial</string>
+    <string-array name="valores_iniciais">
+        <item>0</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
 </resources>
