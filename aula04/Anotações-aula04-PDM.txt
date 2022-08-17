@@ -1,0 +1,19 @@
+1.REVISAR O QUE É INFLAR !!!
+
+-> Transformar o xml (antes estatico) em objeto acessível à logica de java/kotlin;
+
+2. No findViewById, em (R.id.nomeClasse), R é uma classe intermediaria q ajuda a fazer a vinculação do XML com o java/kotlin;
+->  R e essa forma são formas antigas de fazer. Tem mais modernas;
+
+3.Jetpack que faz a vinculação moderna, fica num pacote chamado Android x;
+
+4. No build.gradle adicionamos a ativação da viewBinding;
+
+-> viewBinding{
+
+	enabled true;
+}
+
+5.A classe q faz a ligação(binding) é a ActivityMainBinding, que criamos objetos do tipo dela;
+
+
