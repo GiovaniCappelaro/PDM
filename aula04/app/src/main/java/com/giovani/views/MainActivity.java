@@ -21,7 +21,11 @@ public class MainActivity extends AppCompatActivity {
         //instanciar a classe activity
         amb = ActivityMainBinding.inflate(getLayoutInflater());
 
+        //quem monta a classe agora é a ActivityMainBinding -> Pega o arquivo root da activity
+        setContentView(amb.getRoot());
 
-        setContentView(R.layout.activity_main); //chama meu layout activity_main
+
+
+        //setContentView(R.layout.activity_main); //chama meu layout activity_main
     }
 }
