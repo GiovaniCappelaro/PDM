@@ -30,8 +30,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //metodo com forma diferente de fazer o listener
-    public void onClickSalvar(View botao){
-        Toast.makeText(this, "clicou no salvar", Toast.LENGTH_SHORT).show();
+    public void onClickBotao(View botao){
+        if(botao.getId() == R.id.salvarBt){
+            Toast.makeText(this, "clicou no botão salvar", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "clicou no botão limpar", Toast.LENGTH_SHORT).show();
+        }
+        
     };
 
 }
