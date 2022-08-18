@@ -26,17 +26,16 @@ public class MainActivity extends AppCompatActivity {
         //quem monta a classe agora é a ActivityMainBinding -> Pega o arquivo root da activity
         setContentView(amb.getRoot());
 
-        //setContentView(R.layout.activity_main); //chama meu layout activity_main
+        //função de limpar o form
+        amb.limparBt.setOnClickListener(view -> {
+            amb.nomeEt.setText("");
+            amb.sobrenomeEt.setText("");
+            amb.emailEt.setText("");
+            amb.estadoCivilSp.setSelection(0); //posição 0 do array de strings do spinner
+
+        });
     }
 
-    //metodo com forma diferente de fazer o listener
-    public void onClickBotao(View botao){
-        if(botao.getId() == R.id.salvarBt){
-            Toast.makeText(this, "clicou no botão salvar", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "clicou no botão limpar", Toast.LENGTH_SHORT).show();
-        }
-        
-    };
+
 
 }

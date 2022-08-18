@@ -9,7 +9,8 @@
     <string name="salvar">Salvar</string>
     <string name="limpar">limpar</string>
     <string-array name="estado_civil">
-        <item>Casado</item>
         <item>Solteiro</item>
+        <item>Casado</item>
+        <item>Divorciado</item>
     </string-array>
 </resources>
