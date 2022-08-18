@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:gravity="center"
-        android:text="Preencha seus dados"
+        android:text="@string/preencha_seus_dados"
         android:layout_margin="5dp"
         android:padding="5dp"
         android:textColor="@color/black"/>
@@ -26,7 +26,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="nome"
-        />
+        android:hint="@string/nome"
+        android:minHeight="48dp"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:importantForAutofill="no" />
+    <!--importantForAutofill="no" n permite autocomplete-->
+
+    <EditText
+        android:id="@+id/sobrenomeEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/sobrenome"
+        android:minHeight="48dp"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/emailEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:minHeight="48dp"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:importantForAutofill="no" />
+
+    <Spinner
+        android:id="@+id/estadoCivilSp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/estado_civil"
+        android:minHeight="48dp"
+        android:padding="5dp"
+        android:layout_margin="5dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="48dp"
+        android:padding="5dp"
+        android:layout_margin="5dp" >
+
+
+        <RadioButton
+            android:id="@+id/femininoRb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/feminino"
+            android:layout_weight="1"
+            android:checked="true"
+            />
+
+        <RadioButton
+            android:id="@+id/masculinoRb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/masculino"
+            android:layout_weight="1"
+            />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/salvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/salvar"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:onClick="onCLickSalvar"/>
+
+
 
 </LinearLayout>
