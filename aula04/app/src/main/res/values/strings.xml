@@ -8,9 +8,12 @@
     <string name="masculino">masculino</string>
     <string name="salvar">Salvar</string>
     <string name="limpar">limpar</string>
+    <string name="nome_do_conjuge">Nome do Cônjuge</string>
+    <string name="sobrenome_do_conjuge">Sobrenome do cônjuge</string>
     <string-array name="estado_civil">
         <item>Solteiro</item>
         <item>Casado</item>
         <item>Divorciado</item>
+        <item>Viuvo</item>
     </string-array>
 </resources>

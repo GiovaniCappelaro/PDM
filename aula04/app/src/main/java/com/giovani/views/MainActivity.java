@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,8 +57,23 @@ public class MainActivity extends AppCompatActivity {
             pessoa = null;
         });
 
+        //listenner pro estado civil pra mostrar inputs do conjuge ou não
+        amb.estadoCivilSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 1){
+                    //posição 1 do array de estado civil é casado (só nesse mostra o input pros dados de conjuge)
+                    amb.conjugeLl.setVisibility(view.VISIBLE);
+                }else{
+                    amb.conjugeLl.setVisibility(view.GONE);
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
 
     }
 
