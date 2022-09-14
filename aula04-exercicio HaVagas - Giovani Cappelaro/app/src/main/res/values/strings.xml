@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">HaVagas</string>
+    <string name="dados_para_a_vagaTv">Dados para a vaga</string>
+    <string name="nome_completoEt">Nome Completo</string>
+    <string name="e_mailEt">E-mail</string>
+    <string name="desejo_receber_atualizacoes_Cb">Desejo receber atualizações</string>
+    <string name="telefoneEt">Telefone</string>
+    <string name="is_telefone_comercialCb">É comercial?</string>
+    <string name="adicionar_telefone_celularCb">Adicionar Telefone Celular ?</string>
+    <string name="celular_com_dddEt">Celular(com ddd)</string>
+    <string name="sexoTv">Sexo:</string>
+    <string name="masculinoRb">Masculino</string>
+    <string name="femininoRb">Feminino</string>
+    <string name="data_de_nascimentoEt">Data de nascimento</string>
+    <string name="formacaoTv">Formação:</string>
+    <string name="ano_de_formaturaEt">Ano de formatura</string>
+    <string name="ano_de_conclusaoEt">Ano de conclusão</string>
+    <string name="instituicaoEt">Instituição</string>
+    <string name="titulo_de_monografiaEt">Título de monografia</string>
+    <string name="orientadorEt">Orientador</string>
+    <string name="vagas_de_interesseEt">Vagas de interesse</string>
+    <string name="salvarBt">Salvar</string>
+    <string name="limparBt">Limpar</string>
+    <string-array name="Formacao">
+        <item>Fundamental</item>
+        <item>Medio</item>
+        <item>Graduação</item>
+        <item>Especialização</item>
+        <item>Mestrado</item>
+        <item>Doutorado</item>
+    </string-array>
 </resources>

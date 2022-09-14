@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         //salvar o form
         amb.salvarBt.setOnClickListener(view -> {
-            //inicializando uma pessoa com seu construtor
+            //inicializando uma pessoa com seu construtor (seguir a ordem !)
             pessoa = new Pessoa(
                     amb.nomeEt.getText().toString(),
                     amb.sobrenomeEt.getText().toString(),

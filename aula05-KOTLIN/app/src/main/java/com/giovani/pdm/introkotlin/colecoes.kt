@@ -36,7 +36,7 @@ fun main() {
         "Informatica para internet"
     )
 
-    listaCursos.add("Engenharia de software")
+    listaCursos.add("Engenharia de software") //consigo add outro curso por ser mutable
 
     listaCursos.forEach {println(it)}
 

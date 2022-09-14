@@ -8,13 +8,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout 
+    <!--Arquivo Scroll view em si é o novo root() referenciado no MainActivity-->
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <!--Arquivo constraint em si é o root() referenciado no MainActivity-->
+        <!--Arquivo LinearLayout em si ERA o root() referenciado no MainActivity-->
 
         <TextView
             android:layout_width="match_parent"
@@ -78,7 +80,8 @@
             android:padding="5dp"
             android:layout_margin="5dp"
             android:visibility="gone">
-            <!--visibility:gone esconde conteudo e espaço ocupado até ser necessário-->
+            <!--visibility:gone esconde conteudo e espaço ocupado até ser necessário -->
+            <!--No caso, só mostra esse Ll de conjuge se o estado civil for casado-->
 
             <EditText
                 android:id="@+id/nomeConjugeEt"
