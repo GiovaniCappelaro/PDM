@@ -20,6 +20,6 @@ fun main(){
     println("Quantidade de caracteres: ${frase.count()}") //chamada de função
     println("Quantidade de caracteres: ${frase.length}")  //chamada de propriedade
 
-
+//var pode mudar o valor, val é imutavel
 
 }

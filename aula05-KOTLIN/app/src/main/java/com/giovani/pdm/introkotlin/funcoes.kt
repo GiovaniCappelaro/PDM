@@ -1,13 +1,11 @@
 package com.giovani.pdm.introkotlin
 
+//aula06- single expressions
+//fun multiplo(a: Int, b: Int) = a % b == 0;
 
 fun multiplo(a: Int, b: Int) : Boolean{
-    val c: Int = a % b
 
-    if(c == 0){
-        return true
-    }
-    return false
+    return (a % b == 0);
 }
 
 //Tipos Int, FLoat, ... são Classes tbm, podem fazer metodos pra eles
@@ -26,3 +24,4 @@ fun main() {
     println(12.multiploo(3))
     println(16 multiplooo 4)
 }
+
