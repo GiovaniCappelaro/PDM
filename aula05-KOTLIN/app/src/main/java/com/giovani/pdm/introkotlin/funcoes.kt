@@ -1,7 +1,9 @@
 package com.giovani.pdm.introkotlin
 
-//aula06- single expressions
+//aula06
+// single expressions
 //fun multiplo(a: Int, b: Int) = a % b == 0;
+
 
 fun multiplo(a: Int, b: Int) : Boolean{
 
