@@ -11,17 +11,17 @@ import com.giovani.pdm.ciclopdm.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     //criar instancia de um Objeto ActivityMainBinding
-    //lateinit var são vars q serão inicializadas depois
-    private lateinit var amb: ActivityMainBinding
+    /*lazy permite inicializar a amb ANTES do método onCreate()
+        -> Só realmente inicializa o objeto quando devolver algo. No caso, quando a var amb for chamada no código
+     */
+    private val amb: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        //PRECISA chamar o inflator pra minha var de activityMainBinding após o onCreate:
-        amb = ActivityMainBinding.inflate(layoutInflater)
-
-        setContentView(R.layout.activity_main)
+        setContentView(amb.root) //a view usada sera a view root da amb
     }
 }
 
