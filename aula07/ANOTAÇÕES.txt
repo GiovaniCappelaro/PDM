@@ -1,0 +1,8 @@
+ACTIVITIES: 
+-costuma gerar uma TELA;
+-Android.view.view -> Desenha a interface gráfica do usuário;
+-Precisa declarar no arquivo AndroidManifes.xml;
+-Considerar o CICLO DE VIDA das activities;
+
+Bundle: guarda as informações e estado antes de fechar a activity;
+
