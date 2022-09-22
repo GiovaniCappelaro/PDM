@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    //var objeto do tipo EditText
+    //var objeto do tipo EditText (usado abaixo p criar um EditText dinamico)
     private lateinit var dinamicoEt: EditText
 
     //tudo no comp. object é estático
@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         dinamicoEt.layoutParams = layoutParams
         dinamicoEt.hint = "Edit text dinamico"
         amb.root.addView(dinamicoEt)  //add a view 'dinamicoEt' às views da aplicação
-
 
 
         Log.v(TAG, "onCreate: Iniciando ciclo COMPLETO") //printa coisas no logCat
@@ -88,9 +87,22 @@ class MainActivity : AppCompatActivity() {
         Log.v(TAG, "onDestroy: Finalizando ciclo COMPLETO")
     }
 
+    //salvar estado
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        outState.putString(VALOR_ET_DINAMICO, dinamicoEt.text.toString())
+        Log.v(TAG, "onSaveInstanceState: Salvando ET dinamico")
     }
+
+    /*
+    //restaurar dados ao retornar à activity:
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val valorSalvo: String = savedInstanceState.getString(VALOR_ET_DINAMICO, "")
+        dinamicoEt.setText(valorSalvo)
+        Log.v(TAG, "onRestoreInstanceState: Restaurando ET dinamico")
+    }
+     */
 
 }
 
