@@ -1,9 +1,15 @@
 package com.giovani.pdm.ciclopdm
 
+import android.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.LayoutDirection
 import android.util.Log
 import android.util.Log.*
+import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.LinearLayout
 import com.giovani.pdm.ciclopdm.databinding.ActivityMainBinding
 
 //sem modificador 'open', uma classe não pode ser herdada
@@ -20,9 +26,13 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+    //var objeto do tipo EditText
+    private lateinit var dinamicoEt: EditText
+
     //tudo no comp. object é estático
     private companion object {
         const val TAG = "CICLO_PDM_TAG"
+        const val VALOR_ET_DINAMICO = "VALOR_ET_DINAMICO"
     }
 
 
@@ -30,6 +40,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(amb.root) //a view usada sera a view root da amb
+
+        //criar um layout na lógica invés de no XML (tempo de execução)
+        dinamicoEt = EditText(this)
+        val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        layoutParams.setMargins(0,10,0,0)
+        dinamicoEt.layoutParams = layoutParams
+        dinamicoEt.hint = "Edit text dinamico"
+        amb.root.addView(dinamicoEt)  //add a view 'dinamicoEt' às views da aplicação
+
+
+
         Log.v(TAG, "onCreate: Iniciando ciclo COMPLETO") //printa coisas no logCat
     }
 
@@ -62,6 +86,10 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.v(TAG, "onDestroy: Finalizando ciclo COMPLETO")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
     }
 
 }
