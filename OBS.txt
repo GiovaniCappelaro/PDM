@@ -1,3 +1,5 @@
 A pasta aula02 na verdade tem os conteudos das aulas 02 e 03 -> Sò n mudei pra n bugar;
 
 A pasta aula05 tem aula 05 e aula06;
+
+CICLO PDM É A AULA 07
