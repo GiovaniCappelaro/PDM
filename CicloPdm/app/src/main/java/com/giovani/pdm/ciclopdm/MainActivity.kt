@@ -46,22 +46,22 @@ class MainActivity : AppCompatActivity() {
     //opicional aplicar esse:
     override fun onRestart() {
         super.onRestart()
-        Log.v(TAG, "onResume: preparando  execução onStart")
+        Log.v(TAG, "onRestart: preparando  execução onStart")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.v(TAG, "Finalizando ciclo FOREGROUND")
+        Log.v(TAG, "onPause: Finalizando ciclo FOREGROUND")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.v(TAG, "FInalizando ciclo VISÍVEL")
+        Log.v(TAG, "onStop: Finalizando ciclo VISÍVEL")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.v(TAG, "FInalizando ciclo COMPLETO")
+        Log.v(TAG, "onDestroy: Finalizando ciclo COMPLETO")
     }
 
 }
