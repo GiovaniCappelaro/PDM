@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         Log.v(TAG, "onSaveInstanceState: Salvando ET dinamico")
     }
 
-    /*
+
     //restaurar dados ao retornar à activity:
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         dinamicoEt.setText(valorSalvo)
         Log.v(TAG, "onRestoreInstanceState: Restaurando ET dinamico")
     }
-     */
+
 
 }
 
