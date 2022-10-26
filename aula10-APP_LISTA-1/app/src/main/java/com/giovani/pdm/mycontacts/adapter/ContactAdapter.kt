@@ -22,7 +22,7 @@ class ContactAdapter (
 
         //tratar solicitação de view
         if(contactTileView == null){
-            //inflo uma nova celula
+            //inflo uma nova celula e a que pedi não existe
             tcb = TileContactBinding.inflate(
                 context.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater,
                 parent,

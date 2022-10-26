@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    //criar DATA SOURCE (alimenta o adapter pra chamar as novas celulas):
+    //criar DATA SOURCE (alimenta o adapter pra chamar as novas celulas) - do tipo Contact, classe que criamos:
     private val contactList: MutableList<Contact> = mutableListOf()
 
     //adapter:
