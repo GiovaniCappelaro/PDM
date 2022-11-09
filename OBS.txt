@@ -3,3 +3,8 @@ A pasta aula02 na verdade tem os conteudos das aulas 02 e 03 -> Sò n mudei pra 
 A pasta aula05 tem aula 05 e aula06;
 
 CICLO PDM É A AULA 07
+
+00-PROJETO_SENDMAIL_SEMANAL na verdade é o projeto myContacts !
+
+Primeiro foi só o arquivo e depois com persistência de dados(aula 09/11/2022);
+
