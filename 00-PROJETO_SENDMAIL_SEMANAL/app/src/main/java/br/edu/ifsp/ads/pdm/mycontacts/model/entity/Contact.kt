@@ -1,4 +1,4 @@
-package br.edu.ifsp.ads.pdm.mycontacts.model
+package br.edu.ifsp.ads.pdm.mycontacts.model.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

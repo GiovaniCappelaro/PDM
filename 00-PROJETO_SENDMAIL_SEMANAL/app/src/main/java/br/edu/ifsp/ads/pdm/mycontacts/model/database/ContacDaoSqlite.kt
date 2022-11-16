@@ -1,4 +1,4 @@
-package br.edu.ifsp.ads.pdm.mycontacts.model
+package br.edu.ifsp.ads.pdm.mycontacts.model.database
 
 import android.content.ContentValues
 import android.content.Context
@@ -7,9 +7,11 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
 import br.edu.ifsp.ads.pdm.mycontacts.R
+import br.edu.ifsp.ads.pdm.mycontacts.model.entity.Contact
+import br.edu.ifsp.ads.pdm.mycontacts.model.dao.ContactDao
 import java.sql.SQLException
 
-class ContacDaoSqlite(context: Context):ContactDao {
+class ContacDaoSqlite(context: Context): ContactDao {
     //criar uma conexão(ainda não é uma)
     companion object Constant {
         private const val CONTACT_DATABASE_FILE = "contacts"

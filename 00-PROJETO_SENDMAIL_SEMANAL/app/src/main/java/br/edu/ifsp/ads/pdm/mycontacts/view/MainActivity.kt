@@ -17,7 +17,7 @@ import br.edu.ifsp.ads.pdm.mycontacts.controller.ContactController
 import br.edu.ifsp.ads.pdm.mycontacts.databinding.ActivityMainBinding
 import br.edu.ifsp.ads.pdm.mycontacts.model.Constant.EXTRA_CONTACT
 import br.edu.ifsp.ads.pdm.mycontacts.model.Constant.VIEW_CONTACT
-import br.edu.ifsp.ads.pdm.mycontacts.model.Contact
+import br.edu.ifsp.ads.pdm.mycontacts.model.entity.Contact
 
 class MainActivity : AppCompatActivity() {
     private val amb: ActivityMainBinding by lazy {
@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Data source
-    private val contactList: MutableList<Contact> by lazy {
-        contactController.getContacts()
-    }
+    private val contactList: MutableList<Contact> = mutableListOf() //contactList inicia vazia
 
     // Adapter
     private lateinit var contactAdapter: ContactAdapter
@@ -70,6 +68,8 @@ class MainActivity : AppCompatActivity() {
                     contactAdapter.notifyDataSetChanged() //avisa pro adapter que houveram mudanças no data source
                 }
             }
+
+
         }
 
         registerForContextMenu(amb.contactsLv) //vincular a listView pra funcionar o contextMenu
@@ -90,6 +90,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(contactIntent)
             }
         }
+
+        //buscar contatos no banco
+        contactController.getContacts()
+
     }
 
     //metodos tratar do menu
@@ -139,5 +143,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //função de callback falsa
+    fun updateContactList(_contacList: MutableList<Contact>){
+        contactList.clear()
+        contactList.addAll(_contacList)
+        contactAdapter.notifyDataSetChanged()
+    }
 
 }

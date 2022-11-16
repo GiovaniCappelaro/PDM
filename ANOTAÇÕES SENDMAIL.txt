@@ -1,0 +1,19 @@
+-classe ContactController:
+
+criou uma Thread com um runnable (implementa interface tipo runnable);
+
+-após essa implementação, começou a usar o framework de banco de dados 'Room';
+
+-no gradle scripts, adicionou o plugin kotlin-kapt e também chamou o Room nas dependencias:
+
+    //Room
+    implementation 'androidx.room:room-runtime:2.4.3'
+    annotationProcessor 'androidx.room:room-compiler:2.4.3'
+    kapt 'androidx.room:room-compiler:2.4.3'
+
+-separou os pacotes do model em subpacotes;
+
+
+
+
+
