@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.ads.pdm.mycontacts.R
 import br.edu.ifsp.ads.pdm.mycontacts.adapter.ContactAdapter
+import br.edu.ifsp.ads.pdm.mycontacts.controller.ContactController
 import br.edu.ifsp.ads.pdm.mycontacts.databinding.ActivityMainBinding
 import br.edu.ifsp.ads.pdm.mycontacts.model.Constant.EXTRA_CONTACT
 import br.edu.ifsp.ads.pdm.mycontacts.model.Constant.VIEW_CONTACT
@@ -24,18 +25,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Data source
-    private val contactList: MutableList<Contact> = mutableListOf()
+    private val contactList: MutableList<Contact> by lazy {
+        contactController.getContacts()
+    }
 
     // Adapter
     private lateinit var contactAdapter: ContactAdapter
 
     private lateinit var carl: ActivityResultLauncher<Intent>
 
+    //controller (para sqlite):
+    private val contactController: ContactController by lazy {
+        ContactController(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
 
-        fillContactList()
         contactAdapter = ContactAdapter(this, contactList)
         amb.contactsLv.adapter = contactAdapter
 
@@ -50,12 +57,16 @@ class MainActivity : AppCompatActivity() {
                         //Alterar o contato na mesma posição
                         val position = contactList.indexOfFirst { it.id == _contact.id }
                         contactList[position] = _contact
+                        contactController.editContact(_contact)
                     }
                     else{
+                        //inserir novo contato no banco
+                        val newId =contactController.insertContact(_contact)
                         //inserir novo contato no fim da lista
                         contactList.add(_contact)
-                    }
 
+                    }
+                    contactList.sortBy { it.name } //ordenar contatos por nome
                     contactAdapter.notifyDataSetChanged() //avisa pro adapter que houveram mudanças no data source
                 }
             }
@@ -111,6 +122,7 @@ class MainActivity : AppCompatActivity() {
         return when(item.itemId){
             R.id.removeContactMi -> {
                 //remove o contato da lista:
+                contactController.removeContact(contactList[position].id) //remover contato do banco ANTES DE REMOVER DA LISTA
                 contactList.removeAt(position)
                 contactAdapter.notifyDataSetChanged()  //avisar o data source da exclusão
                 true
@@ -128,17 +140,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun fillContactList() {
-        for (i in 1..10) {
-            contactList.add(
-                Contact(
-                    id = i,
-                    name = "Nome $i",
-                    address = "Endereço $i",
-                    phone = "Telefone $i",
-                    email = "Email $i",
-                )
-            )
-        }
-    }
 }
