@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.ads.pdm.mycontacts.R
 import br.edu.ifsp.ads.pdm.mycontacts.adapter.ContactAdapter
 import br.edu.ifsp.ads.pdm.mycontacts.controller.ContactController
+import br.edu.ifsp.ads.pdm.mycontacts.controller.ContactRoomController
 import br.edu.ifsp.ads.pdm.mycontacts.databinding.ActivityMainBinding
 import br.edu.ifsp.ads.pdm.mycontacts.model.Constant.EXTRA_CONTACT
 import br.edu.ifsp.ads.pdm.mycontacts.model.Constant.VIEW_CONTACT
@@ -32,9 +33,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var carl: ActivityResultLauncher<Intent>
 
-    //controller (para sqlite):
-    private val contactController: ContactController by lazy {
-        ContactController(this)
+    //controller (para sqlite -> agor Room):
+    private val contactController: ContactRoomController by lazy {
+        ContactRoomController(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,22 +51,16 @@ class MainActivity : AppCompatActivity() {
             if (result.resultCode == RESULT_OK) {
                 val contact = result.data?.getParcelableExtra<Contact>(EXTRA_CONTACT)
                 contact?.let { _contact->
-                    //verificar se o contato ja n existe antes de inserir na lista:
-                    if(contactList.any{it.id == _contact.id}){
-                        //Alterar o contato na mesma posição
+
+                    if(_contact.id != null){
                         val position = contactList.indexOfFirst { it.id == _contact.id }
-                        contactList[position] = _contact
-                        contactController.editContact(_contact)
+                        if(position != -1){
+                            contactController.editContact(_contact)
+                        }
                     }
                     else{
-                        //inserir novo contato no banco
-                        val newId =contactController.insertContact(_contact)
-                        //inserir novo contato no fim da lista
-                        contactList.add(_contact)
-
+                        contactController.insertContact(_contact)
                     }
-                    contactList.sortBy { it.name } //ordenar contatos por nome
-                    contactAdapter.notifyDataSetChanged() //avisa pro adapter que houveram mudanças no data source
                 }
             }
 
@@ -123,16 +118,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         val position = (item.menuInfo as AdapterContextMenuInfo ).position //pegar posição do item do menu
+        val contact = contactList[position]
         return when(item.itemId){
             R.id.removeContactMi -> {
                 //remove o contato da lista:
-                contactController.removeContact(contactList[position].id) //remover contato do banco ANTES DE REMOVER DA LISTA
+                contactController.removeContact(contact) //remover contato do banco ANTES DE REMOVER DA LISTA
                 contactList.removeAt(position)
                 contactAdapter.notifyDataSetChanged()  //avisar o data source da exclusão
                 true
             }
             R.id.editContactMi ->{
-                val contact = contactList[position]
                 val contactIntent = Intent(this, ContactActivity::class.java)
                 contactIntent.putExtra(EXTRA_CONTACT, contact)
                 contactIntent.putExtra(VIEW_CONTACT, false)

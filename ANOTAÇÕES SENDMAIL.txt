@@ -14,6 +14,15 @@ criou uma Thread com um runnable (implementa interface tipo runnable);
 -separou os pacotes do model em subpacotes;
 
 
+-alterou a classe Contact.kt;
+
+
+- criou a classe ContactRoomDao;
+
+-criou a classe ContactRoomDaoDatabase;
+
+
+-criou a classe ContactRoomController; (preciso arrumar)
 
 
 
